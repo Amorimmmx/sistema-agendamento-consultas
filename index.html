@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Médica</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Clínica Médica</h1>
+
+    <!-- CADASTRO DE PACIENTES -->
+    <section id="paciente-section">
+      <h2>Cadastro de Paciente</h2>
+      <form id="form-paciente">
+        <input type="text" id="nomePaciente" placeholder="Nome" required>
+        <input type="text" id="cpfPaciente" placeholder="CPF" required>
+        <input type="text" id="telefonePaciente" placeholder="Telefone">
+
+        <select id="generoPaciente" required>
+          <option value="">Selecione o gênero</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Outro">Outro</option>
+        </select>
+
+        <input type="text" id="motivoPaciente" placeholder="Motivo da consulta" required>
+
+        <textarea id="historicoPaciente" placeholder="Histórico"></textarea>
+        <button type="submit">Cadastrar</button>
+      </form>
+      <ul id="lista-pacientes"></ul>
+    </section>
+
+    <!-- CADASTRO DE MÉDICOS -->
+    <section id="medico-section">
+      <h2>Cadastro de Médico</h2>
+      <form id="form-medico">
+        <input type="text" id="nomeMedico" placeholder="Nome" required>
+        <input type="text" id="crmMedico" placeholder="CRM" required>
+        <input type="text" id="especialidadeMedico" placeholder="Especialidade">
+        <button type="submit">Cadastrar</button>
+      </form>
+      <ul id="lista-medicos"></ul>
+    </section>
+
+    <!-- AGENDAMENTO DE CONSULTAS -->
+    <section id="consulta-section">
+      <h2>Agendamento de Consulta</h2>
+      <form id="form-consulta">
+        <select id="pacienteConsulta" required></select>
+        <select id="medicoConsulta" required></select>
+        <input type="datetime-local" id="dataConsulta" required>
+        <button type="submit">Agendar</button>
+      </form>
+      <ul id="lista-consultas"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

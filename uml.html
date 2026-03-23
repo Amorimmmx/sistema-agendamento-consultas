@@ -1,0 +1,37 @@
++----------------+
+|   Paciente     |
++----------------+
+| - nome: string |
+| - cpf: string  |
+| - telefone: string
+| - genero: string
+| - motivo: string
+| - historico: string
++----------------+
+| +cadastrar()   |
++----------------+
+
++----------------+
+|    Medico      |
++----------------+
+| - nome: string |
+| - crm: string  |
+| - especialidade: string
++----------------+
+| +cadastrar()   |
++----------------+
+
++----------------+
+|   Consulta     |
++----------------+
+| - paciente: Paciente
+| - medico: Medico
+| - data: datetime
++----------------+
+| +agendar()     |
++----------------+
+
+Relatórios de relacionamento:
+
+Paciente "1" <--- "0..*" Consulta
+Medico   "1" <--- "0..*" Consulta
