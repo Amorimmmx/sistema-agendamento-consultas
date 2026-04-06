@@ -171,4 +171,8 @@ Além disso, o trabalho demonstra a aplicação de conceitos fundamentais de eng
 
 O projeto pode evoluir com a inclusão de novas funcionalidades e melhorias estruturais, tornando-se mais robusto e alinhado às práticas profissionais do mercado.
 
+##  Autor
+
+- Henrique Jesus Amorim
+
 ---
