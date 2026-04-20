@@ -1,37 +1,137 @@
-+----------------+
-|   Paciente     |
-+----------------+
-| - nome: string |
-| - cpf: string  |
-| - telefone: string
-| - genero: string
-| - motivo: string
-| - historico: string
-+----------------+
-| +cadastrar()   |
-+----------------+
+<!DOCTYPE html>
 
-+----------------+
-|    Medico      |
-+----------------+
-| - nome: string |
-| - crm: string  |
-| - especialidade: string
-+----------------+
-| +cadastrar()   |
-+----------------+
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>UML - Sistema de Clínica</title>
 
-+----------------+
-|   Consulta     |
-+----------------+
-| - paciente: Paciente
-| - medico: Medico
-| - data: datetime
-+----------------+
-| +agendar()     |
-+----------------+
+<style>
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+    padding: 20px;
+}
 
-Relatórios de relacionamento:
+h1, h2 {
+    text-align: center;
+}
 
-Paciente "1" <--- "0..*" Consulta
-Medico   "1" <--- "0..*" Consulta
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.box {
+    border: 2px solid #000;
+    background: #fff;
+    padding: 10px;
+    width: 220px;
+    text-align: left;
+}
+
+.titulo {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.relacionamento {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1> Diagramas UML</h1>
+
+<h2> Diagrama de Classes</h2>
+
+<div class="container">
+
+```
+<div class="box">
+    <div class="titulo">Paciente</div>
+    <hr>
+    - nome: string <br>
+    - cpf: string <br>
+    - telefone: string <br>
+    - genero: string <br>
+    - motivo: string <br>
+    - historico: string <br>
+    <hr>
+    + cadastrar()
+</div>
+
+<div class="box">
+    <div class="titulo">Medico</div>
+    <hr>
+    - nome: string <br>
+    - crm: string <br>
+    - especialidade: string <br>
+    <hr>
+    + cadastrar()
+</div>
+
+<div class="box">
+    <div class="titulo">Consulta</div>
+    <hr>
+    - paciente: Paciente <br>
+    - medico: Medico <br>
+    - data: datetime <br>
+    <hr>
+    + agendar()
+</div>
+```
+
+</div>
+
+<div class="relacionamento">
+    <p><strong>Relacionamentos:</strong></p>
+    Paciente (1) -------- (0..*) Consulta <br>
+    Médico (1) -------- (0..*) Consulta
+</div>
+
+<hr>
+
+<h2>👤 Diagrama de Caso de Uso</h2>
+<div class="container">
+    <div class="box">Usuário</div>
+    <div class="box">
+        - Cadastrar Paciente <br>
+        - Cadastrar Médico <br>
+        - Agendar Consulta <br>
+        - Visualizar Consultas
+    </div>
+</div>
+
+<hr>
+
+<h2>🔄 Diagrama de Sequência</h2>
+<div class="container">
+    <div class="box">Usuário</div>
+    <div class="box">Sistema</div>
+    <div class="box">localStorage</div>
+</div>
+<p style="text-align:center;">
+Usuário → Sistema → Salvar Dados → localStorage → Retorno ao Usuário
+</p>
+
+<hr>
+
+<h2> Diagrama de Atividades</h2>
+<div class="container">
+    <div class="box">Início</div>
+    <div class="box">Preencher Dados</div>
+    <div class="box">Validar Dados</div>
+    <div class="box">Salvar</div>
+    <div class="box">Fim</div>
+</div>
+
+</body>
+</html>
