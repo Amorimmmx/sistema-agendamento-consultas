@@ -1,178 +1,83 @@
-# Sistema de Agendamento de Consultas
+#  Sistema de Agendamento de Consultas
 
-🔗 Acesse o sistema:
-https://amorimmmx.github.io/sistema-agendamento-consultas/
+##  Descrição
 
-#  RELATÓRIO – SISTEMA DE AGENDAMENTO DE CONSULTAS
-
-## 1. Introdução
-
-O presente trabalho apresenta o desenvolvimento de um sistema de agendamento de consultas online, com o objetivo de facilitar o gerenciamento de horários e melhorar a experiência do usuário.
-
-O sistema permite que usuários realizem agendamentos de forma prática, contribuindo para a organização de atendimentos e redução de conflitos de horários.
-
+Este projeto consiste em um sistema simples de agendamento de consultas médicas, desenvolvido para fins educacionais, aplicando conceitos de engenharia de software.
 
 ---
 
-## 2. Desenvolvimento de Software Profissional
+##  Funcionalidades
 
-O desenvolvimento do sistema segue princípios de software profissional, incluindo:
-
-* Organização do código em módulos
-* Separação entre interface e lógica de negócio
-* Facilidade de manutenção e expansão
-
-Além disso, o sistema pode evoluir com futuras melhorias, como:
-
-* Integração com banco de dados
-* Sistema de login
-* Notificações automáticas
+* Cadastrar consultas
+* Listar consultas
+* Remover consultas *(se tiver no seu sistema, senão apaga essa linha)*
 
 ---
 
-## 3. Paradigmas de Desenvolvimento de Software
+##  Requisitos Funcionais
 
-O sistema foi desenvolvido com base no paradigma de:
-
-### Programação Estruturada e Modular
-
-* Divisão do sistema em partes menores (funções)
-* Reutilização de código
-* Melhor organização e manutenção
-
-Caso expandido, pode adotar:
-
-* Programação Orientada a Objetos (POO)
-* Separação em camadas (Model, View, Controller)
+* RF01: Permitir o cadastro de consultas
+* RF02: Permitir a visualização das consultas cadastradas
+* RF03: Permitir a remoção de consultas *(remova se não existir)*
 
 ---
 
-## 4. Aspectos Éticos
+##  Requisitos Não Funcionais
 
-O sistema considera aspectos éticos importantes, como:
-
-* Proteção de dados dos usuários
-* Uso responsável das informações
-* Garantia de privacidade
-
-Sugestões de melhoria:
-
-* Implementação de Política de Privacidade
-* Adequação à LGPD (Lei Geral de Proteção de Dados)
-* Termos de uso para os usuários
+* RNF01: Interface simples e intuitiva
+* RNF02: Execução em navegador web
+* RNF03: Armazenamento de dados em memória (simulado)
 
 ---
 
-## 5. Arquitetura de Software
+##  Paradigma de Programação
 
-### Arquitetura Utilizada: Modelo em Camadas (Simples)
-
-O sistema segue uma estrutura baseada em:
-
-* **Interface (Frontend):**
-  Responsável pela interação com o usuário.
-
-* **Lógica de Aplicação:**
-  Processa os dados e regras de agendamento.
-
-* **Dados (Simulados):**
-  Armazenamento temporário das informações.
-
-Essa arquitetura facilita:
-
-* Manutenção
-* Escalabilidade
-* Organização do sistema
+O sistema foi desenvolvido utilizando programação procedural com JavaScript.
 
 ---
 
-## 6. Ciclo de Vida do Software
+##  Arquitetura do Sistema
 
-O desenvolvimento do sistema segue as seguintes etapas:
+O sistema segue uma arquitetura em camadas simplificada:
 
-1. **Levantamento de Requisitos**
-
-   * Identificação das funcionalidades necessárias
-
-2. **Análise**
-
-   * Definição de como o sistema funcionará
-
-3. **Projeto**
-
-   * Estruturação da interface e lógica
-
-4. **Implementação**
-
-   * Codificação do sistema
-
-5. **Testes**
-
-   * Verificação de funcionamento
-
-6. **Manutenção**
-
-   * Correção de erros e melhorias futuras
+* **Apresentação:** Interface HTML/CSS
+* **Controle:** Funções JavaScript que recebem dados do usuário
+* **Negócio:** Regras para validação e cadastro de consultas
+* **Dados:** Armazenamento em memória (arrays)
 
 ---
 
-## 7. Processo de Desenvolvimento de Software
+##  Ciclo de Vida do Software
 
-### 7.1 Métodos Tradicionais vs Ágeis
-
-* **Tradicional (Cascata):**
-  Etapas sequenciais e rígidas
-
-* **Ágil:**
-  Desenvolvimento iterativo e flexível
-
-O projeto se aproxima mais do modelo ágil devido à possibilidade de melhorias contínuas.
+1. Levantamento de requisitos
+2. Análise do problema
+3. Projeto do sistema
+4. Implementação (HTML, CSS e JavaScript)
+5. Testes manuais
+6. Manutenção e melhorias
 
 ---
 
-### 7.2 Modelos Tradicionais
+##  Aspectos Éticos e LGPD
 
-* **Cascata:** Desenvolvimento linear
-* **Incremental:** Entregas em partes
-* **Espiral:** Combinação de desenvolvimento e análise de riscos
+Este sistema não utiliza dados reais de pacientes, sendo apenas uma simulação.
 
----
+Em um ambiente real, seria necessário:
 
-### 7.3 Modelos Ágeis
-
-O sistema pode ser associado ao uso de práticas ágeis, como:
-
-* Desenvolvimento incremental
-* Entregas contínuas
-* Adaptação rápida a mudanças
+* Proteção de dados sensíveis
+* Controle de acesso
+* Consentimento do usuário
 
 ---
 
-### 7.4 DevOps
+##  Processo de Desenvolvimento
 
-O conceito de DevOps envolve integração entre desenvolvimento e operações, incluindo:
-
-* Integração contínua (CI)
-* Entrega contínua (CD)
-* Automação de deploy
-
-Como melhoria futura, o sistema pode adotar:
-
-* Hospedagem automatizada
-* Atualizações contínuas
+Foi utilizado um modelo simples de desenvolvimento incremental, com evolução contínua do sistema.
 
 ---
 
-## 8. Conclusão
+##  UML
 
-O sistema desenvolvido atende ao objetivo principal de permitir o agendamento de consultas de forma simples e eficiente.
-
-Além disso, o trabalho demonstra a aplicação de conceitos fundamentais de engenharia de software, incluindo arquitetura, ciclo de vida e processos de desenvolvimento.
-
-O projeto pode evoluir com a inclusão de novas funcionalidades e melhorias estruturais, tornando-se mais robusto e alinhado às práticas profissionais do mercado.
-
-##  Autor
-
-- Henrique Jesus Amorim
+Os diagramas UML do sistema podem ser visualizados no arquivo `uml.html`.
 
 ---
