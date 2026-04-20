@@ -1,16 +1,62 @@
-// --- Dados ---
+// ===============================
+//  CAMADA DE DADOS
+// ===============================
 let pacientes = JSON.parse(localStorage.getItem('pacientes')) || [];
 let medicos = JSON.parse(localStorage.getItem('medicos')) || [];
 let consultas = JSON.parse(localStorage.getItem('consultas')) || [];
 
-// --- Salvar no localStorage ---
 function salvarDados() {
     localStorage.setItem('pacientes', JSON.stringify(pacientes));
     localStorage.setItem('medicos', JSON.stringify(medicos));
     localStorage.setItem('consultas', JSON.stringify(consultas));
 }
 
-// --- Atualizar listas ---
+// ===============================
+//  CAMADA DE NEGÓCIO
+// ===============================
+
+// valida CPF duplicado
+function cpfJaExiste(cpf) {
+    return pacientes.some(p => p.cpf === cpf);
+}
+
+// valida CRM duplicado
+function crmJaExiste(crm) {
+    return medicos.some(m => m.crm === crm);
+}
+
+// cria paciente
+function criarPaciente(dados) {
+    if (cpfJaExiste(dados.cpf)) {
+        alert('CPF já cadastrado!');
+        return false;
+    }
+    pacientes.push(dados);
+    salvarDados();
+    return true;
+}
+
+// cria médico
+function criarMedico(dados) {
+    if (crmJaExiste(dados.crm)) {
+        alert('CRM já cadastrado!');
+        return false;
+    }
+    medicos.push(dados);
+    salvarDados();
+    return true;
+}
+
+// cria consulta
+function criarConsulta(paciente, medico, data) {
+    consultas.push({ paciente, medico, data });
+    salvarDados();
+}
+
+// ===============================
+//  CAMADA DE APRESENTAÇÃO
+// ===============================
+
 function atualizarLista(elementoId, array, tipo) {
     const lista = document.getElementById(elementoId);
     lista.innerHTML = '';
@@ -34,7 +80,6 @@ function atualizarLista(elementoId, array, tipo) {
     });
 }
 
-// --- Atualizar selects ---
 function atualizarSelects() {
     const pacienteSelect = document.getElementById('pacienteConsulta');
     const medicoSelect = document.getElementById('medicoConsulta');
@@ -57,72 +102,45 @@ function atualizarSelects() {
     });
 }
 
-// --- Inicialização ---
-function iniciarSistema() {
-    atualizarLista('lista-pacientes', pacientes, 'paciente');
-    atualizarLista('lista-medicos', medicos, 'medico');
-    atualizarLista('lista-consultas', consultas, 'consulta');
-    atualizarSelects();
-}
-
-// --- Eventos ---
+// ===============================
+//  CAMADA DE CONTROLE (EVENTOS)
+// ===============================
 
 // Paciente
 document.getElementById('form-paciente').addEventListener('submit', function(e){
     e.preventDefault();
 
-    const nome = document.getElementById('nomePaciente').value;
-    const cpf = document.getElementById('cpfPaciente').value;
-
-    // Evitar CPF duplicado
-    if (pacientes.some(p => p.cpf === cpf)) {
-        alert('CPF já cadastrado!');
-        return;
-    }
-
     const paciente = {
-        nome,
-        cpf,
+        nome: document.getElementById('nomePaciente').value,
+        cpf: document.getElementById('cpfPaciente').value,
         telefone: document.getElementById('telefonePaciente').value,
         genero: document.getElementById('generoPaciente').value,
         motivo: document.getElementById('motivoPaciente').value,
         historico: document.getElementById('historicoPaciente').value
     };
 
-    pacientes.push(paciente);
-
-    atualizarLista('lista-pacientes', pacientes, 'paciente');
-    atualizarSelects();
-    salvarDados();
-
-    this.reset();
+    if (criarPaciente(paciente)) {
+        atualizarLista('lista-pacientes', pacientes, 'paciente');
+        atualizarSelects();
+        this.reset();
+    }
 });
 
 // Médico
 document.getElementById('form-medico').addEventListener('submit', function(e){
     e.preventDefault();
 
-    const crm = document.getElementById('crmMedico').value;
-
-    // Evitar CRM duplicado
-    if (medicos.some(m => m.crm === crm)) {
-        alert('CRM já cadastrado!');
-        return;
-    }
-
     const medico = {
         nome: document.getElementById('nomeMedico').value,
-        crm,
+        crm: document.getElementById('crmMedico').value,
         especialidade: document.getElementById('especialidadeMedico').value
     };
 
-    medicos.push(medico);
-
-    atualizarLista('lista-medicos', medicos, 'medico');
-    atualizarSelects();
-    salvarDados();
-
-    this.reset();
+    if (criarMedico(medico)) {
+        atualizarLista('lista-medicos', medicos, 'medico');
+        atualizarSelects();
+        this.reset();
+    }
 });
 
 // Consulta
@@ -133,15 +151,20 @@ document.getElementById('form-consulta').addEventListener('submit', function(e){
     const medico = medicos[document.getElementById('medicoConsulta').value];
     const data = document.getElementById('dataConsulta').value;
 
-    const consulta = { paciente, medico, data };
-
-    consultas.push(consulta);
+    criarConsulta(paciente, medico, data);
 
     atualizarLista('lista-consultas', consultas, 'consulta');
-    salvarDados();
-
     this.reset();
 });
 
-// Iniciar sistema ao carregar
+// ===============================
+//  INICIALIZAÇÃO
+// ===============================
+function iniciarSistema() {
+    atualizarLista('lista-pacientes', pacientes, 'paciente');
+    atualizarLista('lista-medicos', medicos, 'medico');
+    atualizarLista('lista-consultas', consultas, 'consulta');
+    atualizarSelects();
+}
+
 iniciarSistema();
